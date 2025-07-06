@@ -1,5 +1,7 @@
 # 🚑 Sehaty | صحتي – Smarter Digital Healthcare 🩺📲
 
+The link of website : https://amr-kzf.github.io/Sehaty-Website/
+
 **Sehaty** is an innovative health application that connects users directly with Egypt’s national healthcare system. It aims to streamline medical services using smart technologies, AI, and real-time integration with government records.
 
 ## 🌟 Key Features
