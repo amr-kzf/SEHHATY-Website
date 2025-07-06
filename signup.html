@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sehaty | Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sehaty-style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <form class="auth-form" id="signupForm">
+      <h2>Create Your Sehaty Account</h2>
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="username" placeholder="Username" required>
+      </div>
+      <div class="form-row">
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm" placeholder="Confirm Password" required>
+      </div>
+      <div class="form-row">
+        <input type="number" name="age" placeholder="Age (years)" min="0" required>
+        <input type="number" name="height" placeholder="Height (cm)" min="0" required>
+        <input type="number" name="weight" placeholder="Weight (kg)" min="0" required>
+      </div>
+      <div class="form-row">
+        <input type="text" name="nid" placeholder="National ID" maxlength="20" required>
+      </div>
+      <div class="form-row">
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-row">
+        <input type="text" name="chronic" placeholder="Chronic Diseases (comma separated)">
+      </div>
+      <div class="form-row">
+        <textarea name="notes" placeholder="Other Health Notes (optional)"></textarea>
+      </div>
+      <button type="submit" class="btn">Sign Up</button>
+      <p class="small-text">Already have an account? <a href="login.html">Login</a></p>
+      <div class="form-success" style="display:none;">Registration successful! You can now login.</div>
+    </form>
+  </div>
+  <script>
+    document.getElementById('signupForm').onsubmit = function(e){
+      e.preventDefault();
+      // اجمع بيانات النموذج
+      const form = this;
+      const user = {
+        name: form.name.value,
+        username: form.username.value,
+        password: form.password.value, // (للتجربة فقط، لا تحفظ الباسورد هكذا في تطبيق حقيقي)
+        age: form.age.value,
+        height: form.height.value,
+        weight: form.weight.value,
+        nid: form.nid.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        chronic: form.chronic.value,
+        notes: form.notes.value
+      };
+      // احفظ البيانات في Local Storage
+      localStorage.setItem('sehatyUser', JSON.stringify(user));
+      document.querySelector('.form-success').style.display = 'block';
+      setTimeout(()=>{ window.location = 'login.html'; }, 2000);
+    }
+  </script>
+
+<footer class="footer">
+    <div class="footer-content">
+      <img src="images/logo2.png" alt="Sehaty Logo" class="footer-logo" style="height:38px;vertical-align:middle;">
+      <span style="margin:0 10px;">© 2025 Sehaty. All rights reserved.</span>
+      <span class="footer-social">
+        <a href="https://facebook.com" target="_blank" title="Facebook" class="footer-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="height:22px;">
+        </a>
+        <a href="https://twitter.com" target="_blank" title="Twitter" class="footer-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="height:22px;">
+        </a>
+        <a href="https://instagram.com" target="_blank" title="Instagram" class="footer-icon">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="height:22px;">
+        </a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>
